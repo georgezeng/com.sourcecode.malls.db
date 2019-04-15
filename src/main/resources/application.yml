@@ -1,0 +1,8 @@
+spring.application.name: malls-db
+spring.session.redis.namespace: session:${spring.application.name}
+spring:
+  liquibase:
+    change-log: classpath:/db/main.xml
+  datasource:
+    table:
+      prefix: 
