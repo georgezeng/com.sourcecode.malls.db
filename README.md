@@ -1,0 +1,1 @@
+# com.sourcecode.malls.db
