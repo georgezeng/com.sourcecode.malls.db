@@ -8,7 +8,7 @@ CREATE TABLE `merchant_user` (
 	`password` varchar(255) NOT NULL,
 	`email` varchar(50),
 	`mobile` varchar(50),
-	`header` varchar(255),
+	`avatar` varchar(255),
 	`enabled` bit(1) NOT NULL,
 	`create_by` varchar(50) NOT NULL,
 	`update_by` varchar(50) NOT NULL,

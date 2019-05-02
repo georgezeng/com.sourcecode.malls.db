@@ -7,4 +7,4 @@ spring:
     table:
       prefix: 
       
-user.type.name:       
+user.type.name:    
