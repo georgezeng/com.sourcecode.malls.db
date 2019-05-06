@@ -21,7 +21,6 @@ CREATE TABLE `goods_specification_value` (
 CREATE TABLE `goods_specification_definition` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
 	`merchant_id` bigint(20) NOT NULL,
-	`group_id` bigint(20) NOT NULL,
 	`order_num` int(11) NOT NULL,
 	`name` varchar(50) NOT NULL,
 	`create_by` varchar(50) NOT NULL,
@@ -30,7 +29,6 @@ CREATE TABLE `goods_specification_definition` (
 	`update_time` datetime NOT NULL,
 	PRIMARY KEY (`id`),
 	INDEX `idx_Goods_Specification_Definition_merchant_id` (`merchant_id`),
-	INDEX `idx_Goods_Specification_Definition_group_id` (`group_id`),
 	INDEX `idx_Goods_Specification_Definition_name` (`name`)
 );
 
@@ -64,3 +62,10 @@ CREATE TABLE `goods_category` (
 	INDEX `idx_Goods_Category_name` (`name`)
 );
 
+CREATE TABLE `goods_definition_group` (
+	`id` bigint(20) NOT NULL AUTO_INCREMENT,
+	`definition_id` bigint(20) NOT NULL,
+	`group_id` bigint(20) NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE `idx_Goods_Definition_Group_definition_id_group_id` (`definition_id`, `group_id`)
+);
