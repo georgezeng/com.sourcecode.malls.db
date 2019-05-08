@@ -1,6 +1,6 @@
 --liquibase formatted sql
 
---changeset admin:15
+--changeset admin:14
 
 CREATE TABLE `goods_item` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
