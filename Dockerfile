@@ -1,5 +1,5 @@
 FROM java:8
-ARG project
+ARG project=mall-db
 RUN echo "Asia/Shanghai" > /etc/timezone
 ADD ${project}.jar ./${project}.jar
 CMD java -jar ${project}.jar
