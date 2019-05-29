@@ -11,7 +11,7 @@ CREATE TABLE `client_identity` (
 	`face_photo` varchar(255) NOT NULL,
 	`badge_photo` varchar(255) NOT NULL,
 	`people_photo` varchar(255) NOT NULL,
-	`reason` varchar(255) NOT NULL,
+	`reason` varchar(255),
 	`create_by` varchar(50) NOT NULL,
 	`update_by` varchar(50) NOT NULL,
 	`create_time` datetime NOT NULL,
