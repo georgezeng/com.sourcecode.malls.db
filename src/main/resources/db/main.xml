@@ -39,4 +39,5 @@
 	<include file="/db/v33.sql" />
 	<include file="/db/v34.sql" />
 	<include file="/db/v35.sql" />
+	<include file="/db/v36.sql" />
 </databaseChangeLog>
