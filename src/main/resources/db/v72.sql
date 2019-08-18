@@ -17,6 +17,7 @@ CREATE TABLE `cash_coupon_setting` (
 	`status` varchar(50) NOT NULL,
 	`event_type` varchar(50),
 	`description` text,
+	`apply_to_all` bit(1),
 	`enabled` bit(1) NOT NULL,
 	`create_by` varchar(50) NOT NULL,
 	`update_by` varchar(50) NOT NULL,
@@ -27,6 +28,21 @@ CREATE TABLE `cash_coupon_setting` (
 	INDEX `idx_Cash_Coupon_Setting_name` (`name`)
 );
 
+CREATE TABLE `cash_coupon_goods_category` (
+	`id` bigint(20) NOT NULL AUTO_INCREMENT,
+	`setting_id` bigint(20) NOT NULL,
+	`category_id` bigint(20) NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE `idx_Cash_Coupon_Goods_Category_setting_id_category_id` (`setting_id`, `category_id`)
+);
+
+CREATE TABLE `cash_coupon_goods_item` (
+	`id` bigint(20) NOT NULL AUTO_INCREMENT,
+	`setting_id` bigint(20) NOT NULL,
+	`item_id` bigint(20) NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE `idx_Cash_Coupon_Goods_Item_setting_id_item_id` (`setting_id`, `item_id`)
+);
 
 CREATE TABLE `cash_client_coupon` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -89,5 +105,5 @@ CREATE TABLE `cash_consume_event_goods_item` (
 	`setting_id` bigint(20) NOT NULL,
 	`item_id` bigint(20) NOT NULL,
 	PRIMARY KEY (`id`),
-	UNIQUE `idx_Cash_Consume_Event_Goods_Category_setting_id_item_id` (`setting_id`, `item_id`)
+	UNIQUE `idx_Cash_Consume_Event_Goods_Item_setting_id_item_id` (`setting_id`, `item_id`)
 );
