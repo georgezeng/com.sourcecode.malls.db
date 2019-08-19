@@ -17,6 +17,7 @@ CREATE TABLE `cash_coupon_setting` (
 	`limited_nums` int(11) NOT NULL,
 	`status` varchar(50) NOT NULL,
 	`event_type` varchar(50),
+	`hx_type` varchar(50),
 	`description` text,
 	`apply_to_all` bit(1),
 	`enabled` bit(1) NOT NULL,
