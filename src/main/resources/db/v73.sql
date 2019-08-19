@@ -6,6 +6,7 @@ CREATE TABLE `cash_coupon_setting` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
 	`merchant_id` bigint(20) NOT NULL,
 	`name` varchar(50) NOT NULL,
+	`title` varchar(50) NOT NULL,
 	`amount` decimal(20,2) NOT NULL,
 	`start_date` date NOT NULL,
 	`end_date` date,
@@ -34,6 +35,15 @@ CREATE TABLE `cash_coupon_goods_category` (
 	`category_id` bigint(20) NOT NULL,
 	PRIMARY KEY (`id`),
 	UNIQUE `idx_Cash_Coupon_Goods_Category_setting_id_category_id` (`setting_id`, `category_id`)
+);
+
+
+CREATE TABLE `cash_coupon_real_category` (
+	`id` bigint(20) NOT NULL AUTO_INCREMENT,
+	`setting_id` bigint(20) NOT NULL,
+	`category_id` bigint(20) NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE `idx_Cash_Coupon_Real_Category_setting_id_category_id` (`setting_id`, `category_id`)
 );
 
 CREATE TABLE `cash_coupon_goods_item` (
@@ -98,6 +108,14 @@ CREATE TABLE `cash_consume_event_goods_category` (
 	`category_id` bigint(20) NOT NULL,
 	PRIMARY KEY (`id`),
 	UNIQUE `idx_Cash_Consume_Event_Goods_Category_setting_id_category_id` (`setting_id`, `category_id`)
+);
+
+CREATE TABLE `cash_consume_event_real_category` (
+	`id` bigint(20) NOT NULL AUTO_INCREMENT,
+	`setting_id` bigint(20) NOT NULL,
+	`category_id` bigint(20) NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE `idx_Cash_Consume_Event_Real_Category_setting_id_category_id` (`setting_id`, `category_id`)
 );
 
 CREATE TABLE `cash_consume_event_goods_item` (
