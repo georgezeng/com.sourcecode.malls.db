@@ -2,7 +2,7 @@
 
 --changeset admin:73
 
-CREATE TABLE `cash_coupon_setting` (
+CREATE TABLE `coupon_setting` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
 	`merchant_id` bigint(20) NOT NULL,
 	`name` varchar(50) NOT NULL,
@@ -18,6 +18,7 @@ CREATE TABLE `cash_coupon_setting` (
 	`status` varchar(50) NOT NULL,
 	`event_type` varchar(50),
 	`hx_type` varchar(50),
+	`type` varchar(50) NOT NULL,
 	`description` text,
 	`apply_to_all` bit(1),
 	`enabled` bit(1) NOT NULL,
@@ -26,36 +27,36 @@ CREATE TABLE `cash_coupon_setting` (
 	`create_time` datetime NOT NULL,
 	`update_time` datetime NOT NULL,
 	PRIMARY KEY (`id`),
-	INDEX `idx_Cash_Coupon_Setting_merchant_id` (`merchant_id`),
-	INDEX `idx_Cash_Coupon_Setting_name` (`name`)
+	INDEX `idx_Coupon_Setting_merchant_id` (`merchant_id`),
+	INDEX `idx_Coupon_Setting_name` (`name`)
 );
 
-CREATE TABLE `cash_coupon_goods_category` (
+CREATE TABLE `coupon_setting_goods_category` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
 	`setting_id` bigint(20) NOT NULL,
 	`category_id` bigint(20) NOT NULL,
 	PRIMARY KEY (`id`),
-	UNIQUE `idx_Cash_Coupon_Goods_Category_setting_id_category_id` (`setting_id`, `category_id`)
+	UNIQUE `idx_Coupon_Setting_Goods_Category_setting_id_category_id` (`setting_id`, `category_id`)
 );
 
 
-CREATE TABLE `cash_coupon_real_category` (
+CREATE TABLE `coupon_setting_real_category` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
 	`setting_id` bigint(20) NOT NULL,
 	`category_id` bigint(20) NOT NULL,
 	PRIMARY KEY (`id`),
-	UNIQUE `idx_Cash_Coupon_Real_Category_setting_id_category_id` (`setting_id`, `category_id`)
+	UNIQUE `idx_Coupon_Setting_Real_Category_setting_id_category_id` (`setting_id`, `category_id`)
 );
 
-CREATE TABLE `cash_coupon_goods_item` (
+CREATE TABLE `coupon_setting_goods_item` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
 	`setting_id` bigint(20) NOT NULL,
 	`item_id` bigint(20) NOT NULL,
 	PRIMARY KEY (`id`),
-	UNIQUE `idx_Cash_Coupon_Goods_Item_setting_id_item_id` (`setting_id`, `item_id`)
+	UNIQUE `idx_Coupon_Setting_Goods_Item_setting_id_item_id` (`setting_id`, `item_id`)
 );
 
-CREATE TABLE `cash_client_coupon` (
+CREATE TABLE `client_coupon` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
 	`coupon_id` varchar(255) NOT NULL,
 	`client_id` bigint(20) NOT NULL,
@@ -70,15 +71,15 @@ CREATE TABLE `cash_client_coupon` (
 	`create_time` datetime NOT NULL,
 	`update_time` datetime NOT NULL,
 	PRIMARY KEY (`id`),
-	UNIQUE `idx_Cash_Client_Coupon_coupon_id` (`coupon_id`),
-	INDEX `idx_Cash_Client_Coupon_client_id` (`client_id`),
-	INDEX `idx_Cash_Client_Coupon_merchant_id` (`merchant_id`),
-	INDEX `idx_Cash_Client_Coupon_order_id` (`order_id`),
-	INDEX `idx_Cash_Client_Coupon_setting_id` (`setting_id`)
+	UNIQUE `idx_Client_Coupon_coupon_id` (`coupon_id`),
+	INDEX `idx_Client_Coupon_client_id` (`client_id`),
+	INDEX `idx_Client_Coupon_merchant_id` (`merchant_id`),
+	INDEX `idx_Client_Coupon_order_id` (`order_id`),
+	INDEX `idx_Client_Coupon_setting_id` (`setting_id`)
 );
 
 
-CREATE TABLE `cash_coupon_invite_event_setting` (
+CREATE TABLE `coupon_invite_event_setting` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
 	`setting_id` bigint(20) NOT NULL,
 	`member_nums` int(11) NOT NULL,
@@ -90,7 +91,7 @@ CREATE TABLE `cash_coupon_invite_event_setting` (
 	INDEX `idx_Coupon_Invite_Event_Setting_setting_id` (`setting_id`)
 );
 
-CREATE TABLE `cash_coupon_consume_event_setting` (
+CREATE TABLE `coupon_consume_event_setting` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
 	`setting_id` bigint(20) NOT NULL,
 	`apply_to_all` bit(1) NOT NULL,
@@ -100,31 +101,31 @@ CREATE TABLE `cash_coupon_consume_event_setting` (
 	`create_time` datetime NOT NULL,
 	`update_time` datetime NOT NULL,
 	PRIMARY KEY (`id`),
-	INDEX `idx_Cash_Coupon_Consume_Event_Setting_setting_id` (`setting_id`)
+	INDEX `idx_Coupon_Consume_Event_Setting_setting_id` (`setting_id`)
 );
 
-CREATE TABLE `cash_consume_event_goods_category` (
+CREATE TABLE `consume_event_goods_category` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
 	`setting_id` bigint(20) NOT NULL,
 	`category_id` bigint(20) NOT NULL,
 	PRIMARY KEY (`id`),
-	UNIQUE `idx_Cash_Consume_Event_Goods_Category_setting_id_category_id` (`setting_id`, `category_id`)
+	UNIQUE `idx_Consume_Event_Goods_Category_setting_id_category_id` (`setting_id`, `category_id`)
 );
 
-CREATE TABLE `cash_consume_event_real_category` (
+CREATE TABLE `consume_event_real_category` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
 	`setting_id` bigint(20) NOT NULL,
 	`category_id` bigint(20) NOT NULL,
 	PRIMARY KEY (`id`),
-	UNIQUE `idx_Cash_Consume_Event_Real_Category_setting_id_category_id` (`setting_id`, `category_id`)
+	UNIQUE `idx_Consume_Event_Real_Category_setting_id_category_id` (`setting_id`, `category_id`)
 );
 
-CREATE TABLE `cash_consume_event_goods_item` (
+CREATE TABLE `consume_event_goods_item` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
 	`setting_id` bigint(20) NOT NULL,
 	`item_id` bigint(20) NOT NULL,
 	PRIMARY KEY (`id`),
-	UNIQUE `idx_Cash_Consume_Event_Goods_Item_setting_id_item_id` (`setting_id`, `item_id`)
+	UNIQUE `idx_Consume_Event_Goods_Item_setting_id_item_id` (`setting_id`, `item_id`)
 );
 
 CREATE TABLE `cash_coupon_order_limited_setting` (
