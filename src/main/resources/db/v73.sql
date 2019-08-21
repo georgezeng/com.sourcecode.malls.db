@@ -20,7 +20,6 @@ CREATE TABLE `coupon_setting` (
 	`hx_type` varchar(50),
 	`type` varchar(50) NOT NULL,
 	`description` text,
-	`apply_to_all` bit(1),
 	`enabled` bit(1) NOT NULL,
 	`create_by` varchar(50) NOT NULL,
 	`update_by` varchar(50) NOT NULL,
@@ -94,7 +93,7 @@ CREATE TABLE `coupon_invite_event_setting` (
 CREATE TABLE `coupon_consume_event_setting` (
 	`id` bigint(20) NOT NULL AUTO_INCREMENT,
 	`setting_id` bigint(20) NOT NULL,
-	`apply_to_all` bit(1) NOT NULL,
+	`type` varchar(50) NOT NULL,
 	`up_to_amount` decimal(20, 2) NOT NULL,
 	`create_by` varchar(50) NOT NULL,
 	`update_by` varchar(50) NOT NULL,
