@@ -81,4 +81,5 @@
 	<include file="/db/v75.sql" />
 	<include file="/db/v76.sql" />
 	<include file="/db/v77.sql" />
+	<include file="/db/v78.sql" />
 </databaseChangeLog>
