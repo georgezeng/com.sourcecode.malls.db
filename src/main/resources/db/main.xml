@@ -93,4 +93,5 @@
 	<include file="/db/v87.sql" />
 	<include file="/db/v88.sql" />
 	<include file="/db/v89.sql" />
+	<include file="/db/v90.sql" />
 </databaseChangeLog>
