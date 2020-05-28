@@ -9,7 +9,7 @@ CREATE TABLE `goods_recommend_category` (
 	`order_num` int(11) NOT NULL,
 	`name` varchar(50) NOT NULL,
 	`logo` varchar(255) NOT NULL,
-	`link` varchar(link) NOT NULL,
+	`link` varchar(255) NOT NULL,
 	`create_by` varchar(50) NOT NULL,
 	`update_by` varchar(50) NOT NULL,
 	`create_time` datetime NOT NULL,
