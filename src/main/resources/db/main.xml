@@ -115,4 +115,5 @@
 	<include file="/db/v109.sql" />
 	<include file="/db/v110.sql" />
 	<include file="/db/v111.sql" />
+	<include file="/db/v112.sql" />
 </databaseChangeLog>
